@@ -33,10 +33,31 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   // find a single product by its `id`
   // be sure to include its associated Category and Tag data
+
+  try{
+    const productID = await Product.findByPK(req.params.id,{
+      include: [{
+        model: Category, 
+        attributes: ['id', 'category_name'],
+      },
+      {
+        model: Tag,
+        attributes: ['id', 'tag_name'],
+        through: ProductTag,
+        as: 'tags', //creating an association between the Product and Tag models - as:tags
+      },
+    ]});
+    res.status(200).json(productID);
+  } catch(err){
+    res.status(500);
+  } finally{
+    console.log("Passing through the router.getID");
+  }
 });
 
 // create new product
 router.post('/', async (req, res) => {
+
   /* req.body should look like this...
     {
       product_name: "Basketball",
@@ -111,6 +132,14 @@ router.put('/:id', async (req, res) => {
 
 router.delete('/:id',async (req, res) => {
   // delete one product by its `id` value
+  try{
+    const productDel = await Category.delete({where: {id: req.params.id}});
+    res.status(200).json(productDel);
+  } catch(err){
+    res.status(500);
+  } finally{
+    console.log("Passing through router.delete");
+  }
 });
 
 module.exports = router;
