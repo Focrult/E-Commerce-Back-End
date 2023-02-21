@@ -17,8 +17,8 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try{
-    const categoriesAll = await Category.findByPk(req.params.id, {include: [{model:Product}],});
-    res.status(200).json(categoriesAll);
+    const categoriesID = await Category.findByPk(req.params.id, {include: [{model:Product}],});
+    res.status(200).json(categoriesID);
   } catch(err){
     res.status(500);
   }finally{
@@ -28,8 +28,8 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try{
-    const categoriesAll = await Category.create(req.body);
-    res.status(200).json(categoriesAll);
+    const categoriesNew = await Category.create(req.body);
+    res.status(200).json(categoriesNew);
   } catch(err){
     res.status(500);
   } finally{
@@ -39,8 +39,8 @@ router.post('/', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
   try{
-    const categoriesAll = await Category.update(req.body, {where: {id: req.params.id},}); 
-      res.status(200).json(categoriesAll);
+    const categoriesUpdated = await Category.update(req.body, {where: {id: req.params.id},}); 
+      res.status(200).json(categoriesUpdated);
   } catch(err){
     res.status(500);
   } finally{
@@ -50,8 +50,8 @@ router.put('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
   try{
-    const categoriesAll = await Category.delete({where: {id: req.params.id}});
-    res.status(200).json(categoriesAll);
+    const categoriesDel = await Category.delete({where: {id: req.params.id}});
+    res.status(200).json(categoriesDel);
   } catch(err){
     res.status(500);
   } finally{
