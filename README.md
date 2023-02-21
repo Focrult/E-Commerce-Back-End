@@ -1,10 +1,41 @@
 # E-Commerce-Back-End
 
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+  ## Table of Contents
+  - [Description](#description)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Contribution](#contribution)
+  - [Tests](#tests)
+  - [License](#license)
+  - [Questions](#questions)
+
+  ## Description
 
 
+  ## Installation
 
 
+  ## Usage
 
+
+  ## Contribution
+  N/A
+
+ 
+ 
+  ## License
+  This project is licensed under the [MIT](https://choosealicense.com/licenses/mit/) license.
+  
+  ## Questions
+  ### Contact me through the following links provided below, if you have any further questions!
+  ### GitHub URL: https://github.com/focrult
+  ### Email: focrult@gmail.com
+  
+
+
+## Videos
 Vid 1 Console:
 https://drive.google.com/file/d/1mUt4LA6Tm-wQ2tCcQ7-pYz7k73WtjwkI/view
 
