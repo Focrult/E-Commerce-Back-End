@@ -10,6 +10,7 @@
   - [Tests](#tests)
   - [License](#license)
   - [Questions](#questions)
+  - [Videos](#videos)
 
   ## Description
 The task for this challenge is to develop the back end for an e-commerce site. Configuring a working Express.js API to use Sequelize to interact with a MySQL database. Covering major areas within this weeks topic ORM. These major areas include developing the following: Database Models, Associations, Filling out API Routes to perform RESTful CRUD Operations, seed the Database and Sync Sequelize to the Database on Server Start. 
