@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
     ]});
     res.status(200).json(productAll);
   } catch(err){
-    res.status(500);
+    res.status(500).json(err);
   } finally{
     console.log("Passing through the router.get");
   }
@@ -35,7 +35,7 @@ router.get('/:id', async (req, res) => {
   // be sure to include its associated Category and Tag data
 
   try{
-    const productID = await Product.findByPK(req.params.id,{
+    const productID = await Product.findByPk(req.params.id,{
       include: [{
         model: Category, 
         attributes: ['id', 'category_name'],
@@ -49,7 +49,7 @@ router.get('/:id', async (req, res) => {
     ]});
     res.status(200).json(productID);
   } catch(err){
-    res.status(500);
+    res.status(500).json(err);
   } finally{
     console.log("Passing through the router.getID");
   }
@@ -133,10 +133,10 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id',async (req, res) => {
   // delete one product by its `id` value
   try{
-    const productDel = await Category.delete({where: {id: req.params.id}});
+    const productDel = await Category.destroy({where: {id: req.params.id}});
     res.status(200).json(productDel);
   } catch(err){
-    res.status(500);
+    res.status(500).json(err);
   } finally{
     console.log("Passing through router.delete");
   }

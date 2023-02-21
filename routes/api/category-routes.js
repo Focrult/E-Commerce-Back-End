@@ -20,7 +20,7 @@ router.get('/:id', async (req, res) => {
     const categoriesID = await Category.findByPk(req.params.id, {include: [{model:Product}],});
     res.status(200).json(categoriesID);
   } catch(err){
-    res.status(500);
+    res.status(500).json(err);
   }finally{
     console.log("Passing through router.get /:id");
   }
@@ -31,7 +31,7 @@ router.post('/', async (req, res) => {
     const categoriesNew = await Category.create(req.body);
     res.status(200).json(categoriesNew);
   } catch(err){
-    res.status(500);
+    res.status(500).json(err);
   } finally{
     console.log("Passing through reouter.post");
   }
@@ -42,7 +42,7 @@ router.put('/:id', async (req, res) => {
     const categoriesUpdated = await Category.update(req.body, {where: {id: req.params.id},}); 
       res.status(200).json(categoriesUpdated);
   } catch(err){
-    res.status(500);
+    res.status(500).json(err);
   } finally{
     console.log("Passing through router.put");
   }
@@ -50,10 +50,10 @@ router.put('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
   try{
-    const categoriesDel = await Category.delete({where: {id: req.params.id}});
+    const categoriesDel = await Category.destroy({where: {id: req.params.id}});
     res.status(200).json(categoriesDel);
   } catch(err){
-    res.status(500);
+    res.status(500).json(err);
   } finally{
     console.log("Passing through router.delete");
   }
