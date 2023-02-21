@@ -9,7 +9,23 @@ router.get('/', async (req, res) => {
   // be sure to include its associated Category and Tag data
 
   try{
-    const productAll = await Product.findAll({})
+    const productAll = await Product.findAll({
+      include: [{
+        model: Category, 
+        attributes: ['id', 'category_name'],
+      },
+      {
+        model: Tag,
+        attributes: ['id', 'tag_name'],
+        through: ProductTag,
+        as: 'tags', //creating an association between the Product and Tag models - as:tags
+      },
+    ]});
+    res.status(200).json(productAll);
+  } catch(err){
+    res.status(500);
+  } finally{
+    console.log("Passing through the router.get");
   }
 });
 
