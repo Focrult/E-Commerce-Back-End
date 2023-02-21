@@ -18,10 +18,10 @@ The task for this challenge is to develop the back end for an e-commerce site. C
   With the approrpiate package name and versions already included inside the package.json file, the user will perform an npm install in their terminal. This will install all relevant dependencies.
   
   Furthermore the user will be required to complete the following instructions to use this application:
-  Step 1: 'mysql -u root -p' into the terminal.
-  Step 2: 'source db/schema.sql' Will DROP and CREATE DB.
-  Step 3: 'npm run seed'
-  Step 4: 'npm start'
+  * Step 1: 'mysql -u root -p' into the terminal.
+  * Step 2: 'source db/schema.sql' Will DROP and CREATE DB.
+  * Step 3: 'npm run seed'
+  * Step 4: 'npm start'
 
   ## Usage
 GIVEN a functional Express.js API
